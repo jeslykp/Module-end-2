@@ -46,7 +46,6 @@ function validatePassword() {
         password.classList.add('is-invalid');
     }
     else if (value.length <= 8 && pattern.test(password.value)) {
-        password.setCustomValidity('Invalid');
         feedback.textContent = '✅ Strong password!';
         password.classList.add('is-valid');
     }
