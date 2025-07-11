@@ -32,6 +32,7 @@ function validatePassword() {
     const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
     password.setCustomValidity('');
 
+    password.classList.remove('is-invalid', 'is-valid');
 
     if (value.length <= 3) {
         password.setCustomValidity('Invalid');
@@ -45,6 +46,7 @@ function validatePassword() {
         password.classList.add('is-invalid');
     }
     else if (value.length <= 8 && pattern.test(password.value)) {
+        password.setCustomValidity('Invalid');
         feedback.textContent = '✅ Strong password!';
         password.classList.add('is-valid');
     }
@@ -73,5 +75,4 @@ function togglePassword() {
     const confirmPassword = document.getElementById('confirmPassword');
     passwordInput.type = showPassword.checked ? 'text' : 'password';
     confirmPassword.type = showPassword.checked ? 'text' : 'password';
-
 }
